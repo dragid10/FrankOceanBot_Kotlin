@@ -36,6 +36,14 @@ class MySQL(val username: String, val password: String, var statement: Statement
         while (result.next()) {
             lyricToTweet = result.getString("lyricLines")
         }
+
+        result.close()
         return lyricToTweet
+    }
+
+    fun closeConnection() {
+
+        statement?.close()
+        conn?.close()
     }
 }

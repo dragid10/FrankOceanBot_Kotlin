@@ -1,4 +1,6 @@
 import java.io.File
+import java.util.*
+import kotlin.concurrent.timerTask
 
 /**
  * Name: Alex Oladele
@@ -18,16 +20,23 @@ fun main(args: Array<String>) {
     val twitterObj = Twitter2()
 
 //    Connects to the DB
-    mySQL.connectToMySQL()
+//    mySQL.connectToMySQL()
 
 //    Connects to Twitter
     val twitterConn = twitterObj.connectToTwitter()
 
-//    Adds lyrics to DB
+    //    Adds lyrics to DB
 //    val lyricsFiles = File("lyrics").listFiles()
 //    addDirectoryToDB(mySQL, *lyricsFiles)
 
-    twitterObj.tweetLyrics(mySQL.getRandomLyric()!!, twitterConn)
+    val timer = Timer()
+    val hourlyTask = timerTask({
+        mySQL.connectToMySQL()
+        twitterObj.tweetLyrics(mySQL.getRandomLyric()!!, twitterConn)
+        mySQL.closeConnection()
+    })
+
+    timer.schedule(hourlyTask, 0L, ((1000 * 60 * 60) * 2))
 }
 
 fun addDirectoryToDB(mySQL: MySQL, vararg songList: File) {
