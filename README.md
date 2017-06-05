@@ -1,43 +1,22 @@
 # Frank Ocean Twitter Bot #
-*(Note: Probably won't be updating this repo much as I'd rather keep up the Kotlin version)*
 
 This is a bot that tweets Random Frank Ocean lyrics on a two-hour time interval.  
 The lyrics are updated as new songs come out.
 
 Follow it on [Twitter](https://twitter.com/FrankOceanBot)  
-Project re-created in [Kotlin](https://github.com/dragid10/FrankOceanBot_Kotlin)
+Follow me on [Twitter](https://twitter.com/wizkid_alex)  
+Project done in [Java](https://github.com/dragid10/Frank_Ocean_TweetBot)
+
+
+<a href="https://twitter.com/FrankOceanBot" target="_blank"> <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-256.png" alt="Follow The Frank Bot on Twitter!" style="width: 50px;"> </a>  
+<a href="https://twitter.com/wizkid_alex" target="_blank"> <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-256.png" alt="Follow Me on Twitter!" style="width: 50px;"> </a>  
+<a href="https://github.com/dragid10/Frank_Ocean_TweetBot" target="_blank"> <img src="http://cdn.mysitemyway.com/icons-watermarks/flat-circle-white-on-black/foundation/foundation_social-github/foundation_social-github_flat-circle-white-on-black_512x512.png" alt="Project Done in Java" style="width: 50px;"> </a>
+
 ___
 
-#### Twitter Connection #### 
-The program can connect to Twitter in 1 of 2 ways:
-
-1. Directly through The twitter4J.properties file (sample provided [here](https://github.com/dragid10/Frank_Ocean_TweetBot/blob/master/twitter4j-sample.properties))
-2. Programmatically, which is done by default.
-
-##### twitter4J.properties:  
-There is a sample of twitter4J supplied in the repo. The only step neccessary is to comment out the lines that connects it programmatically, and fill in with your own info. The file is placed in the root project folder.
-
-##### Programmatic Connection:  
-The default connection method used is connecting to twitter via the connectToTwitter method. In order to use this, you must have a stripped down version of twitter4J.properties in your root folder.
-e.g.:   
-(Good Version)
-            
-                true
-                *********************
-                ******************************************
-                **************************************************
-                ******************************************
-                
-vs:  
-(Bad Version)
-
-                debug=true
-                oauth.consumerKey=*********************
-                oauth.consumerSecret=******************************************
-                oauth.accessToken=**************************************************
-                oauth.accessTokenSecret=******************************************
-
-
+### Twitter Connection ###
+The connects programmatically via the *config.prop* file in the root folder. All neccesary properties must be set via this file
 
 ____
 ![Happy Franking!](https://consequenceofsound.files.wordpress.com/2016/11/frank-ocean-new-york-times-interview.png "Frank Ocean")
+![](http://i.imgur.com/krsu6Dg.jpg)
