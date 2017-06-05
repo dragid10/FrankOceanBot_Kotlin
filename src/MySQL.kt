@@ -1,21 +1,23 @@
 import java.sql.*
 import java.util.*
 
-class MySQL(val username: String, val password: String, var statement: Statement? = null, var conn: Connection? = null, val jdbc_driver: String = "com.mysql.jdbc.Driver", val db_url: String = "jdbc:mysql://kotlindb.ddns.net:3305/kotlinDB?useSSL=false") {
+class MySQL(val username: String, val password: String, var statement: Statement? = null, var conn: Connection? = null) {
 
     fun connectToMySQL(username: String = this.username, password: String = this.password) {
-//        Register JDBC Drive
-        Class.forName(jdbc_driver)
+        val dbProperties = Properties()
+        dbProperties.setProperty("user", username)
+        dbProperties.setProperty("password", password)
+        dbProperties.setProperty("userSSL", "false")
+        dbProperties.setProperty("autoReconnect", "true")
+        dbProperties.setProperty("jdbc_Driver", "com.mysql.jdbc.Driver")
+        dbProperties.setProperty("dbURL", "jdbc:mysql://kotlindb.ddns.net:3305/kotlinDB?useSSL=false")
 
-        val properties = Properties()
-        properties.setProperty("user", username)
-        properties.setProperty("password", password)
-        properties.setProperty("userSSL", "false")
-        properties.setProperty("autoReconnect", "true")
+        //        Register JDBC Drive
+        Class.forName(dbProperties.getProperty("jdbc_Driver"))
 
 //        Open connection to DB
         println("Connecting to Database...")
-        conn = DriverManager.getConnection(db_url, properties)
+        conn = DriverManager.getConnection(dbProperties.getProperty("dbURL"), dbProperties)
         println("Database Connection successful!")
     }
 
@@ -42,7 +44,6 @@ class MySQL(val username: String, val password: String, var statement: Statement
     }
 
     fun closeConnection() {
-
         statement?.close()
         conn?.close()
     }
