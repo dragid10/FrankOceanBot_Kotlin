@@ -1,24 +1,27 @@
 import java.sql.*
 import java.util.*
 
-class MySQL(val username: String, val password: String, var statement: Statement? = null, var conn: Connection? = null) {
+class MySQL(val dbProperties: Properties, var statement: Statement? = null, var conn: Connection? = null) {
 
-    fun connectToMySQL(username: String = this.username, password: String = this.password) {
-        val dbProperties = Properties()
-        dbProperties.setProperty("user", username)
-        dbProperties.setProperty("password", password)
-        dbProperties.setProperty("userSSL", "false")
-        dbProperties.setProperty("autoReconnect", "true")
-        dbProperties.setProperty("jdbc_Driver", "com.mysql.jdbc.Driver")
-        dbProperties.setProperty("dbURL", "jdbc:mysql://kotlindb.ddns.net:3305/kotlinDB?useSSL=false")
-
+    fun connectToMySQL() {
         //        Register JDBC Drive
         Class.forName(dbProperties.getProperty("jdbc_Driver"))
 
-//        Open connection to DB
-        println("Connecting to Database...")
-        conn = DriverManager.getConnection(dbProperties.getProperty("dbURL"), dbProperties)
-        println("Database Connection successful!")
+        try {
+            //        Open connection to DB
+            println("Attempting to connect to Database....".toUpperCase())
+            conn = DriverManager.getConnection(dbProperties.getProperty("dbURL"), dbProperties)
+        } catch (e: SQLException) {
+            println("Error Connecting to MySQL. Retrying...")
+            try {
+                conn = DriverManager.getConnection(dbProperties.getProperty("dbURL"), dbProperties)
+            } catch(e: Exception) {
+                // TODO Add logging for if can't connect to DB
+            }
+        } finally {
+            val resultMSG = if (conn != null) "Database Connection successful!" else "Database Connection Failed!"
+            println(resultMSG)
+        }
     }
 
     fun addLyricsToDB(lyric: String) {
