@@ -17,8 +17,10 @@ class MySQL(val dbProperties: Properties, var statement: Statement? = null, var 
                 conn = DriverManager.getConnection(dbProperties.getProperty("dbURL"), dbProperties)
             } catch(e: Exception) {
                 // TODO Add logging for if can't connect to DB
+                e.printStackTrace()
             }
         } finally {
+
             val resultMSG = if (conn != null) "Database Connection successful!" else "Database Connection Failed!"
             println(resultMSG)
         }
