@@ -1,0 +1,17 @@
+#All properties used in the application
+#Mon Jun 05 10:58:30 EDT 2017
+
+[Database Properties]
+db_user=ExampleUser
+db_pass=ExamplePass
+jdbc_Driver=com.mysql.jdbc.Driver
+dbURL=jdbc\:mysql\://kotlindb.ddns.net\:3305/kotlinDB?useSSL\=false
+autoReconnect=true
+
+[Twitter4JProperties]
+debug=true
+oauth.consumerKey=*********************
+oauth.consumerSecret=******************************************
+oauth.accessToken=**************************************************
+oauth.accessTokenSecret=******************************************
+
