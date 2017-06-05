@@ -3,8 +3,13 @@
 This is a bot that tweets Random Frank Ocean lyrics on a two-hour time interval.  
 The lyrics are updated as new songs come out.
 
-<a href="https://twitter.com/FrankOceanBot" target="_blank"> <img src="images/twitter_circle_black-256 2.png" alt="Follow The Frank Bot on Twitter!" style="width: 50px;"> </a>  
+@FrankOceanBot  
+<a href="https://twitter.com/FrankOceanBot" target="_blank"> <img src="images/twitter_circle_black-256 2.png" alt="Follow The Frank Bot on Twitter!" style="width: 50px;"> </a>   
+
+@Wizkid_alex  
 <a href="https://twitter.com/wizkid_alex" target="_blank"> <img src="images/twitter_circle_black-256 2.png" alt="Follow Me on Twitter!" style="width: 50px;"> </a>  
+
+Project in Java  
 <a href="https://github.com/dragid10/Frank_Ocean_TweetBot" target="_blank"> <img src="images/foundation_social-github_flat-circle-white-on-black_512x512 2.png" alt="Project Done in Java" style="width: 50px;"> </a>
 
 ___

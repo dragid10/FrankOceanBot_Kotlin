@@ -48,3 +48,5 @@ workspace.xml
 build/
 !**/src/**/build
 config\.prop
+
+\.idea/dictionaries/
