@@ -15,7 +15,9 @@ Project in Java
 ___
 
 ### Twitter Connection ###
-The connects programmatically via the *config.prop* file in the root folder. All neccesary properties must be set via this file
+The connects programmatically via the *config.prop* file in the root folder. All neccesary properties must be set via this file. 
+
+Request a Twitter oauth token [here](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 ____
 ![Happy Franking!](https://consequenceofsound.files.wordpress.com/2016/11/frank-ocean-new-york-times-interview.png "Frank Ocean")
