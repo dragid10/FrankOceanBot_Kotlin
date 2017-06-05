@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="kotlinDB@kotlindb.ddns.net" uuid="b2e62e22-08ec-45fe-b254-1442b37768f9">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <introspection-schemas>*:kotlinDB</introspection-schemas>
+    </data-source>
+  </component>
+</project>
