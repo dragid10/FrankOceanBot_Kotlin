@@ -15,3 +15,5 @@ oauth.consumerSecret=******************************************
 oauth.accessToken=**************************************************
 oauth.accessTokenSecret=******************************************
 
+[Email Properties]
+email=example@examplesite.com
