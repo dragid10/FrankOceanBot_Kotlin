@@ -46,8 +46,6 @@ fun main(args: Array<String>) {
         val hourlyTask = timerTask({
             mySQL.connectToMySQL()
             twitterObj.tweetLyrics(mySQL.getRandomLyric()!!, twitterConn)
-            mySQL.closeConnection()
-            println("Database Connection successfully closed")
         })
         timer.schedule(hourlyTask, 0L, ((1000 * 60 * 60) * 2))
     }
@@ -55,11 +53,13 @@ fun main(args: Array<String>) {
 
 fun createTwitterProperties(prop: Properties): Properties {
     val twitterProp = Properties()
-    twitterProp.setProperty("debug", prop.getProperty("debug"))
-    twitterProp.setProperty("oauth.consumerKey", prop.getProperty("oauth.consumerKey"))
-    twitterProp.setProperty("oauth.consumerSecret", prop.getProperty("oauth.consumerSecret"))
-    twitterProp.setProperty("oauth.accessToken", prop.getProperty("oauth.accessToken"))
-    twitterProp.setProperty("oauth.accessTokenSecret", prop.getProperty("oauth.accessTokenSecret"))
+    with (twitterProp) {
+        setProperty("debug", prop.getProperty("debug"))
+        setProperty("oauth.consumerKey", prop.getProperty("oauth.consumerKey"))
+        setProperty("oauth.consumerSecret", prop.getProperty("oauth.consumerSecret"))
+        setProperty("oauth.accessToken", prop.getProperty("oauth.accessToken"))
+        setProperty("oauth.accessTokenSecret", prop.getProperty("oauth.accessTokenSecret"))
+    }
 
     return twitterProp
 }
