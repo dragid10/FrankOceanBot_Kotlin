@@ -50,3 +50,5 @@ build/
 config\.prop
 
 \.idea/dictionaries/
+
+config.prop
