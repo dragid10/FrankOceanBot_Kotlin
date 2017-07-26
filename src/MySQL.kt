@@ -38,7 +38,7 @@ class MySQL(val dbProperties: Properties, var statement: Statement? = null, var 
     fun getRandomLyric(): String? {
         var lyricToTweet: String? = null
         statement = conn?.createStatement()
-        val result: ResultSet = statement!!.executeQuery("SELECT lyricLines FROM lyrics_tbl ORDER BY RAND() LIMIT 1")
+        val result: ResultSet = statement!!.executeQuery("SELECT lyricLines FROM lyrics_tbl WHERE (LENGTH(lyricLines) < 140)ORDER BY RAND() LIMIT 1")
 
         while (result.next()) {
             lyricToTweet = result.getString("lyricLines")
